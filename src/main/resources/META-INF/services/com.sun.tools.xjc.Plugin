@@ -1,0 +1,4 @@
+com.jscriptive.jaxb2.xjc.plugin.PrivateMembersPlugin
+com.jscriptive.jaxb2.xjc.plugin.StringValueToConstantPlugin
+com.jscriptive.jaxb2.xjc.plugin.SecureGetterSetterPlugin
+com.jscriptive.jaxb2.xjc.plugin.SecureValueConstructorPlugin

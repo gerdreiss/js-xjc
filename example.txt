@@ -1,0 +1,51 @@
+<!--  Example usage:  -->
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.jvnet.jaxb2.maven2</groupId>
+            <artifactId>maven-jaxb2-plugin</artifactId>
+            <configuration>
+                <forceRegenerate>true</forceRegenerate>
+                <args>
+                    <!-- implement security requirements when generating classes:
+                         clone Date objects when using them as constructor params -->
+                    <arg>-Xsecure-value-constructor</arg>
+                    <!-- Change members visibility to private -->
+                    <arg>-Xprivate-members</arg>
+                    <!-- Use constants for string values -->
+                    <arg>-Xstring-to-constant</arg>
+                    <!-- implement security requirements when generating classes:
+                         clone Date objects when setting and/or returning the respective property
+                         in getter/setter methods -->
+                    <arg>-Xsecure-getter-setter</arg>
+                </args>
+                <plugins>
+                    <plugin>
+                        <groupId>com.jscriptive.jaxb2</groupId>
+                        <artifactId>js-xjc</artifactId>
+                        <version>1.0.0-SNAPSHOT</version>
+                    </plugin>
+                </plugins>
+            </configuration>
+
+            <executions>
+                <execution>
+                    <id>fileupload-configuration</id>
+                    <goals>
+                        <goal>generate</goal>
+                    </goals>
+                    <configuration>
+                        <generatePackage>your.package</generatePackage>
+                        <schemaDirectory>src/main/xsd</schemaDirectory>
+                        <generateDirectory>src/main/java</generateDirectory>
+                        <bindingDirectory>src/main/xsd</bindingDirectory>
+                        <bindingIncludes>
+                            <bindingInclude>jaxb-bindings.xjb</bindingInclude>
+                        </bindingIncludes>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
