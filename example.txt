@@ -31,7 +31,7 @@
 
             <executions>
                 <execution>
-                    <id>fileupload-configuration</id>
+                    <id>your-id</id>
                     <goals>
                         <goal>generate</goal>
                     </goals>
